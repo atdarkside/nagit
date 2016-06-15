@@ -1,0 +1,59 @@
+#!/bin/bash
+
+search=.git
+
+if [ -e $search ]; then
+
+	echo -e "\n\033[0;32m* ------------------------------- *\033[0;39m"
+	echo -e "\033[0;32m*                                 *\033[0;39m"
+	echo -e "\033[0;32m*      We found .git dir !!       *\033[0;39m"
+	echo -e "\033[0;32m*                                 *\033[0;39m"
+	echo -e "\033[0;32m* ------------------------------- *\n\033[0;39m"
+
+	echo -n "commit message ? > "
+	read message
+
+	echo -e "\n\033[0;32m/* add step */\033[0;39m"
+	git add .
+
+	echo -e "\n\033[0;32m/* commit step */\033[0;39m"
+	git commit -m $message
+
+	echo -e "\n\033[0;32m/* push step */\033[0;39m"
+	git push -u origin master
+
+else
+
+	echo -e "\n\033[0;32m* ------------------------------- *\033[0;39m"
+	echo -e "\033[0;32m*                                 *\033[0;39m"
+	echo -e "\033[0;32m*      We not found .git dir !!   *\033[0;39m"
+	echo -e "\033[0;32m*        We run 'git init' .      *\033[0;39m"
+	echo -e "\033[0;32m*                                 *\033[0;39m"
+	echo -e "\033[0;32m* ------------------------------- *\n\033[0;39m"
+
+	echo -n "repository url ? > "
+	read repository
+
+	if [[ ! $repository =~ ^(((https?|git)://)?github.com/)?[A-Za-z0-9_-]+/[A-Za-z0-9_-]+(\.git)?$ ]]; then
+		echo "$repository: invalid github.com URL"
+		exit 1
+	fi
+
+	echo -n "commit message ? > "
+	read message
+
+	echo -e "\n\033[0;32m/* init step */\033[0;39m"
+    git init
+
+    echo -e "\n\033[0;32m/* add step */\033[0;39m"
+	git add *
+
+	echo -e "\n\033[0;32m/* commit step */\033[0;39m"
+	git commit -m $message
+
+	echo -e "\n\033[0;32m/* remote step */\033[0;39m"
+	git remote add origin $repository
+
+	echo -e "\n\033[0;32m/* push step */\033[0;39m"
+	git push -u origin master
+fi
