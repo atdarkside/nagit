@@ -43,9 +43,9 @@ else
 	read message
 
 	echo -e "\n\033[0;32m/* init step */\033[0;39m"
-    git init
+    	git init
 
-    echo -e "\n\033[0;32m/* add step */\033[0;39m"
+    	echo -e "\n\033[0;32m/* add step */\033[0;39m"
 	git add *
 
 	echo -e "\n\033[0;32m/* commit step */\033[0;39m"
