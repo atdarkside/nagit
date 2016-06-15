@@ -7,7 +7,7 @@
 git clone https://github.com/atDarkside/nagit.git
 cd nagit
 cp nagit /usr/local
-cd /user/local
+cd /usr/local
 PATH="/usr/local:$PATH"
 chmod 755 nagit
 
