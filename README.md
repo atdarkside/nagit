@@ -4,7 +4,7 @@
 ##setup
 
 ```bash
-git clone https://github.com/atDarkside/nagit.git
+git clone https://github.com/atdarkside/nagit.git
 cd nagit
 cp nagit /usr/local
 cd /usr/local
