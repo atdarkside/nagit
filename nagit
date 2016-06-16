@@ -17,7 +17,7 @@ if [ -e $search ]; then
 	git add .
 
 	echo -e "\n\033[0;32m/* commit step */\033[0;39m"
-	git commit -m $message
+	git commit -m "$message"
 
 	echo -e "\n\033[0;32m/* push step */\033[0;39m"
 	git push -u origin master
@@ -49,7 +49,7 @@ else
 	git add *
 
 	echo -e "\n\033[0;32m/* commit step */\033[0;39m"
-	git commit -m $message
+	git commit -m "$message"
 
 	echo -e "\n\033[0;32m/* remote step */\033[0;39m"
 	git remote add origin $repository
